@@ -1,0 +1,405 @@
+{
+    "meta":
+    {
+        "id": "chapel",
+        "key": "2b23e7c2cfda4694bd687902b5f16232dec7f982ba90c316dd911f7746d542bf",
+        "name": "Blackthorn Chapel",
+        "type": "scene",
+        "scope": "global",
+        "access": "public"
+    },
+    "flags":
+    {
+        "seen-chest": false,
+        "sid-belmont-gem": false,
+        "explored-backside-of-chapel": false,
+        "crucifix": false,
+        "statue-moved": false
+    },
+    "scene":
+    {
+        "properties":
+        {
+            "text": "You arrive at the old chapel of Blackthorn at night.",
+            "media":{}
+
+        },
+        "interactions":
+        {
+            "look": "look around",
+            "inspect": "examine",
+            "search": "search",
+            "wait": "wait",
+            "action": "action",
+            "talk": "talk",
+            "charm": "flatter",
+            "move": "move on"
+        }
+    },
+    "entities":
+    {
+        "stage":
+        [
+            {
+                "name": "Blackthorn Chapel",
+                "options":
+                {
+                    "look": [ "lookAtChapel"],
+                    "search": [ "searchChapel" ],
+                    "action": []
+                }
+            }
+        ],
+        "feature":
+        [
+            {
+                "name": "Grabstein",
+                "options":
+                {
+                    "look": ["lookAtGravestone1"],
+                    "inspect":["inspectGravestone1"]
+                }
+            },
+            {
+                "name": "Grabstein",
+                "options":
+                {
+                    "look": ["lookAtGravestone2"]
+                }
+            },
+            {
+                "name": "Grabstein",
+                "options":
+                {
+                    "look":["lookAtGravestone3"]
+                }
+            },
+            {
+                "name": "Statue",
+                "options":
+                {
+                    "look": ["lookAtStatue"],
+                    "action":
+                    [
+                        "prayStatue",
+                        "moveStatue",
+                        "enterSecretRoom"
+                    ]
+                }
+            },
+            {
+                "name": "Cracked Wall",
+                "rules":
+                {
+                    "flags":
+                    {
+                        "explored-backside-of-chapel": true
+                    }
+                },
+                "options":
+                {
+                    "look":["lookAtCrackedWall","lookIntoCrack"],
+                    "inspect":["inspectCrackOnWall"]
+                }
+            },
+            {
+                "name": "Road",
+                "options":
+                {
+                    "look":["lookAtRoad"],
+                    "wait": ["waitOnRoad"]
+                }
+            }
+        ]
+    },
+    "nodes":
+    [
+        {
+            "key": "lookAtChapel",
+            "text": "Take a good look at the old chapel building",
+            "reactions":
+            [
+                {
+                    "text": "you look around the chapel and notice that at some point in the past there must have been a fire here."
+                },
+                {
+                    "text": "The chapel is in poor condition, the roof is missing, and you feel an icy wind. On the right side of the chapel, three gravestones lie in the garden; on the other side, an old road passes near the chapel. In the distance, a wolf howls.",
+                    "media":
+                    {
+                        "scene-img": "scene-img.jpg",
+                        "popup-img": "popup-img.jpg",
+                        "actor-img": "sorsha|actor-img.jpg",
+                        "stage-img": "stage-img.png"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "searchChapel",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "behind the chapel, you find a crack in the wall.",
+                    "media": {},
+                    "logic":
+                    [
+                       "setFlag|explored-backside-of-chapel|true"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "prayStatue",
+            "text": "Pray before the statue",
+            "reactions":
+            [
+                {
+                    "text": "you pray at the foot of the statue, nothing happens.",
+                    "media": {}
+                }
+            ]
+        },
+        {
+            "key": "moveStatue",
+            "text": "move the statue",
+            "rules":
+            {
+                "flags":
+                {
+                    "seen-chest": true
+                }
+            },
+            "reactions":
+            [
+                {
+                    "text": "you move the statue, behind it. you find an entrance to a secret room",
+                    "media": {},
+                    "logic":
+                    [
+                        "setFlag|statue-moved|true",
+                        "disableAction"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "lookAtStatue",
+            "text": "look at the statue",
+            "reactions":
+            [
+                {
+                    "text": "you look at the statue. It represents a godess",
+                    "media": {}
+                }
+            ]
+        },
+        {
+            "key": "enterSecretRoom",
+            "text": "Enter the secret room behind the statue",
+            "rules":
+            {
+                "flags":
+                {
+                    "statue-moved": true,
+                    "seen-chest": true
+                }
+            },
+            "reactions":
+            [
+                {
+                    "text": "you enter the secret room behind the statue, open the chest and find a crucifix",
+                    "media": {},
+                    "logic":
+                    [
+                       "setFlag|crucifix|true",
+                        "disableAction"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "lookAtCrackedWall",
+            "text": "Look at the cracked wall",
+            "reactions":
+            [
+                {
+                    "text": "A crack on the wall, seems to be quite deep",
+                    "media": {}
+                }
+            ]
+        },
+        {
+            "key": "lookIntoCrack",
+            "text": "look deeper in the cracked wall",
+            "reactions":
+            [
+                {
+                    "text": "It looks like there is a room behind the crack.",
+                    "media": {}
+                }
+            ]
+        },
+        {
+            "key": "inspectCrackOnWall",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "On the inner side of the wall seems to be a room you did not notice before. After peeking through the hole, you make out a chest.",
+                    "media": {},
+                    "logic":
+                    [
+                       "setFlag|seen-chest|true"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "lookAtRoad",
+            "text": "",
+
+            "reactions":
+            [
+                {
+                    "text": "The road extends into the darkness of the night",
+                    "media": {}
+                }
+            ]
+        },
+        {
+            "key": "waitOnRoad",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "You wait but nothing happens. Maybe try at another time...",
+                    "rules":
+                    {
+
+                    }
+                },
+                {
+                    "text": "after a while , you hear something coming closer...",
+                    "rules":
+                    {
+                        "odds": 100
+                    },
+                    "logic":
+                    [
+                        "loadScene|#carriage"
+                    ],
+
+                    "options":
+                    [
+                        "listenCarefully",
+                        "whistle"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "lookAtGravestone1",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "a gravestone with latin letters on it, show latin text"
+                }
+            ]
+        },
+        {
+            "key": "inspectGravestone1",
+            "text": "",
+            "rules":
+            {
+                "flags": { "crucifix": true }
+            },
+            "reactions":
+            [
+                {
+                    "text": "You notice that the crucifix around your neck fires a beam of light pointing to the foot of the tombstone. You start digging and uncover a small green gem.",
+                    "media": {},
+                    "logic":
+                    [
+                        "setFlag|sid-belmont-gem|true",
+                        "disableAction"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "lookAtGravestone2",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "a gravestone with letters in a foreign language"
+                }
+            ]
+        },
+        {
+            "key": "lookAtGravestone3",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "a gravestone with letters in a foreign language !"
+                }
+            ]
+        },
+        {
+            "key": "listenCarefully",
+            "text": "",
+            "reactions":
+            [
+                {
+                    "text": "you listen carefully and , yes, you think its a carriage you hear in the dark.",
+                    "options":
+                    [
+                        "enterCarriage"
+                    ]
+
+
+                }
+            ]
+        },
+        {
+            "key": "enterCarriage",
+            "text": "enter the carriage",
+            "reactions":
+            [
+                {
+                    "text": "you enter the carriage",
+                    "options":
+                    [
+                        "carriage.start"
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "whistle",
+            "text": "",
+            "rules":
+            {
+            },
+            "reactions":
+            [
+                {
+                    "text": "you whistle a nervous tune... and i only happen on 10% of the cases !",
+                    "rules":
+                    {
+                        "odds": 10
+                    }
+                },
+                {
+                    "text": "you whistle a bold tune..."
+                },
+                {
+                    "text": "you whistle a despicable tune..."
+                }
+            ]
+        }
+   ]
+}
