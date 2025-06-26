@@ -16,7 +16,11 @@
 
     "scene":
     {
-
+        "properties":
+        {
+            "text": "You wake up. In a neglected dwelling. At first, you think it's a dream. But when you touch the edge of your bed, you realise: it is no dream. It is pure reality.You see the dark atmosphere around you. The windows in your room are black, and you can't see outside. You don't know where you are. Slowly, you stand up.",
+            "media": ""
+        }
     },
 
     "entities":
