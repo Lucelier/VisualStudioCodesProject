@@ -1,7 +1,12 @@
 {
     "meta":
     {
-
+        "id": "dwelling neglected",
+        "key": "H+oXsuB8Xz+L2UGWwaXu9pvm4JrebbwwTHEZIyLjdjD0sssZYo8y5MHDII31yAmqMuHwCweKeXqEU2moqZnn15/Of9UNU8vJVJbOfm3FL6k=",
+        "name": "Chapter I - Dwelling Neglected",
+        "type": "scene",
+        "scope": "global",
+        "access": "public"
     },
 
     "flags":
