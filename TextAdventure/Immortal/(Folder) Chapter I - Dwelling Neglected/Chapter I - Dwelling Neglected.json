@@ -25,13 +25,25 @@
         "interactions":
         {
             "inspect": "inspect",
+            "look": "look at",
             "tired": "Stands tired there"
         }
     },
 
     "entities":
     {
-
+        "feature":
+        [
+            {
+                "name": "bed",
+                "options":
+                {
+                    "look_at_bed": ["Look under the Bed."],
+                    "sleep_in_bed": ["You are tired. You lie in the bed."]
+                }
+            }
+        ]
+    
     },
     
     "nodes":
