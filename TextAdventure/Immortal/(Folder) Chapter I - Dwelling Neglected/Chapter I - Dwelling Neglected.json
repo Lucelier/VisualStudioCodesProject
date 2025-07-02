@@ -41,6 +41,15 @@
                     "look_at_bed": ["Look under the Bed."],
                     "sleep_in_bed": ["You are tired. You lie in the bed."]
                 }
+            },
+
+            {
+                "name": "window",
+                "options":
+                {
+                    "look_trough_window": ["You try to look trough the Window."],
+                    "open_window": ["You try to open the Window."]
+                }
             }
         ]
     
