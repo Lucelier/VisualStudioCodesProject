@@ -38,7 +38,7 @@
                 "name": "bed",
                 "options":
                 {
-                    "look_at_bed": ["Look under the Bed."],
+                    "look_under_bed": ["You try to look under the Bed."],
                     "sleep_in_bed": ["You are tired. You lie in the bed."]
                 }
             },
