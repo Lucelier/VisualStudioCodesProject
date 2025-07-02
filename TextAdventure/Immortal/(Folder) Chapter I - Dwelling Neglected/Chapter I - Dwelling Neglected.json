@@ -25,8 +25,8 @@
         "interactions":
         {
             "inspect": "inspect",
-            "look": "look at",
-            "tired": "Stands tired there"
+            "look": "look",
+            "stand": "standing"
         }
     },
 
