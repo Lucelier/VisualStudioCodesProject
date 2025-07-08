@@ -57,6 +57,16 @@
     
     "nodes":
     [
-
+        {
+            "key": "InspectUndersideBed",
+            "text": "You ask yourself: What kind of Bed is this? You duck and look under the Bed.",
+            "reaction":
+            [
+                {
+                    "text": "You look under the bed and find a small piece of paper with a short message on it. It reads: 'The captain conceals the Jade Key, in a dwelling long neglected. But you can only blow the whistle, once the trophies are all collected.' In a few places in the text, comments have been written: -The Captain is only an allusion, he doesn't exists., -You need the Jade Key to escape this place., -The whistle is hidden, you must search for it., -The trophies are in the garden.",
+                    "media": "https://chatgpt.com/s/m_686d23c1fb108191ab1f005781055100"
+                }
+            ]
+        }
     ]
 }
