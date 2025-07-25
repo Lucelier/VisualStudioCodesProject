@@ -67,6 +67,17 @@
                     "media": "https://chatgpt.com/s/m_686d23c1fb108191ab1f005781055100"
                 }
             ]
+        },
+        {
+            "key": "OpenWindow",
+            "text": "You want to know where you are. You go to the Window and try to open it.",
+            "reaction":
+            [
+                {
+                    "text": "But you can't. The Window is firmly closed.",
+                    "media": "https://chatgpt.com/s/m_688387c72ee08191ac49e6c72011ca83"
+                }
+            ]
         }
     ]
 }
