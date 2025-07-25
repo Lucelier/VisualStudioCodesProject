@@ -1,26 +1,83 @@
 {
     "meta":
     {
-
+        "id": "dwelling neglected",
+        "key": "H+oXsuB8Xz+L2UGWwaXu9pvm4JrebbwwTHEZIyLjdjD0sssZYo8y5MHDII31yAmqMuHwCweKeXqEU2moqZnn15/Of9UNU8vJVJbOfm3FL6k=",
+        "name": "Chapter I - Dwelling Neglected",
+        "type": "scene",
+        "scope": "global",
+        "access": "public"
     },
 
     "flags":
     {
-
+        "tired": true,
+        "night": false
     },
 
     "scene":
     {
+        "properties":
+        {
+            "text": "You wake up. In a neglected dwelling. At first, you think it's a dream. But when you touch the edge of your bed, you realise: it is no dream. It is pure reality.You see the dark atmosphere around you. The windows in your room are black, and you can't see outside. You don't know where you are. Slowly, you stand up.",
+            "media": "https://chatgpt.com/s/m_685e6f8df90c819194b09843d20ca061"
+        },
 
+        "interactions":
+        {
+            "inspect": "inspect",
+            "look": "look",
+            "stand": "standing"
+        }
     },
 
     "entities":
     {
+        "feature":
+        [
+            {
+                "name": "bed",
+                "options":
+                {
+                    "inspect": ["InspectUndersideBed"],
+                    "stand": ["StandsNearBed"]
+                }
+            },
 
+            {
+                "name": "window",
+                "options":
+                {
+                    "look": ["OpenWindow"]
+                }
+            }
+        ]
+    
     },
     
     "nodes":
-    {
-
-    }
+    [
+        {
+            "key": "InspectUndersideBed",
+            "text": "You ask yourself: What kind of Bed is this? You duck and look under the Bed.",
+            "reaction":
+            [
+                {
+                    "text": "You look under the bed and find a small piece of paper with a short message on it. It reads: 'The captain conceals the Jade Key, in a dwelling long neglected. But you can only blow the whistle, once the trophies are all collected.' In a few places in the text, comments have been written: -The Captain is only an allusion, he doesn't exists., -You need the Jade Key to escape this place., -The whistle is hidden, you must search for it., -The trophies are in the garden.",
+                    "media": "https://chatgpt.com/s/m_686d23c1fb108191ab1f005781055100"
+                }
+            ]
+        },
+        {
+            "key": "OpenWindow",
+            "text": "You want to know where you are. You go to the Window and try to open it.",
+            "reaction":
+            [
+                {
+                    "text": "But you can't. The Window is firmly closed.",
+                    "media": "https://chatgpt.com/s/m_688387c72ee08191ac49e6c72011ca83"
+                }
+            ]
+        }
+    ]
 }
